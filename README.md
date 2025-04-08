@@ -1,18 +1,8 @@
 
-
-
-
-
 Title: GearTrack: Office Equipment Checkout System
 
-
-
 Submission: Proposal
-Team Members: Rishitha Karingula, Sai Bharadwaj Mukkera
 
-
-
- 
 Description:
 
 GearTrack is a web-enabled database management system (DBMS) designed to streamline the process of tracking office equipment (e.g., laptops, projectors, monitors) borrowed by employees in a workplace. In many offices, equipment is shared among staff, but tracking who has what and when it’s due back is often chaotic, relying on spreadsheets or manual logs. GearTrack addresses this problem by providing a centralized system to record equipment checkouts, returns, and availability. Employees can check out items via a web interface, while managers can monitor usage and overdue returns. The system will support basic queries (e.g., available items) and reports (e.g., overdue checkouts), enhancing workplace organization and accountability.
@@ -28,10 +18,10 @@ V.	The system uses MySQL for storage with basic triggers (e.g., status updates),
  
 Project Plan:
 
-Phase 1	Conceptual Database Design and Proposal	4th April
-Phase 2	Logical and Physical Database Design	15th April
-Phase 3	Project Implementation	29th April
-Phase 4	Project Demonstration	6th May
+Phase 1	Conceptual Database Design and Proposal	
+Phase 2	Logical and Physical Database Design	
+Phase 3	Project Implementation	
+Phase 4	Project Demonstration	
 ______________________________________________________________________________
 Phase I: Conceptual Database Design (ER Modeling) 
 Requirement Analysis:
@@ -40,26 +30,26 @@ Requirement Analysis:
 3.	For each checkout, record the equipment, employee, checkout date, due date, and return date (if returned).
 4.	Ensure equipment can only be checked out by one employee at a time.
 Entities:
-✔ Equipment (item_id, name, category, status)
-✔Employees (emp_id, name, department)
-✔Checkouts (checkout_id, item_id, emp_id, checkout_date, due_date, return_date)
+Equipment (item_id, name, category, status)
+Employees (emp_id, name, department)
+Checkouts (checkout_id, item_id, emp_id, checkout_date, due_date, return_date)
 
 Relationships:
-I.	Checkouts links Equipment (1:N) and Employees (1:N).
-II.	Cardinality: One Equipment can have many Checkouts, but one Checkout ties to one Equipment.
-III.	Cardinality: One Employee can have many Checkouts, but one Checkout ties to one Employee.
+Checkouts links Equipment (1:N) and Employees (1:N).
+Cardinality: One Equipment can have many Checkouts, but one Checkout ties to one Equipment.
+Cardinality: One Employee can have many Checkouts, but one Checkout ties to one Employee.
 
 Constraints:
-- item_id and emp_id are unique.
-- status in Equipment is either 'available' or 'checked out'.
-- checkout_date ≤ due_date.
-- return_date is NULL until the item is returned.
+item_id and emp_id are unique.
+status in Equipment is either 'available' or 'checked out'.
+checkout_date ≤ due_date.
+return_date is NULL until the item is returned.
 
 Additional Constraint: An equipment item cannot be checked out if its status is already 'checked out'.
 Why This One?
-I.	Entities: Just three core tables (Equipment, Employees, Checkouts) with straightforward relationships (e.g., Equipment-to-Checkouts is one-to-many).
-II.	Functionality: Basic CRUD operations (create, read, update, delete) for checking out/returning items—no advanced features like scheduling or workload balancing.
-III.	Solves a real workplace problem (tracking equipment), which makes it relatable and demo-friendly and simplest design
+Entities: Just three core tables (Equipment, Employees, Checkouts) with straightforward relationships (e.g., Equipment-to-Checkouts is one-to-many).
+Functionality: Basic CRUD operations (create, read, update, delete) for checking out/returning items—no advanced features like scheduling or workload balancing.
+Solves a real workplace problem (tracking equipment), which makes it relatable and demo-friendly and simplest design
 ______________________________________________________________________________
 Phase II: Logical and Physical Database Design 
 Relational Schema:
